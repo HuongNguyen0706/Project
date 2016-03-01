@@ -1,5 +1,4 @@
 import com.sun.java.swing.plaf.motif.MotifInternalFrameUI;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.event.*;
@@ -7,20 +6,13 @@ import java.awt.font.GraphicAttribute;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
-
-
-
-
 /**
  * Created by Admin on 2/27/2016.
  */
-public class GameWindow extends Frame implements KeyListener,MouseMotionListener, Runnable
-{
+public class GameWindow extends Frame implements KeyListener,MouseMotionListener, Runnable, MouseListener {
     //start/////////////////////////////////////////////////////////
     Graphics seconds;
     Image image;
-
     ///////////////////////////////////////////////////////////////
 //    BufferedImage bg;
 //    BufferedImage PLANE2;
@@ -28,9 +20,6 @@ public class GameWindow extends Frame implements KeyListener,MouseMotionListener
 //    int positionY1;
 //    int direction = 0;
     Plane plane; //tham chieu (dia chi)
-
-
-
     public GameWindow()
     {
         plane = new Plane(); //tao doi tuong moi
@@ -39,6 +28,7 @@ public class GameWindow extends Frame implements KeyListener,MouseMotionListener
         plane.setpositionX1(100);
         plane.setpositionY1(100);
         plane.setspeed(3);
+        plane.speedDan = 5;
         this.setTitle("Game1945");
         this.setSize(400,640);
         this.setVisible(true);//de chay cua so window
@@ -56,6 +46,7 @@ public class GameWindow extends Frame implements KeyListener,MouseMotionListener
             plane.setPLANE2(ImageIO.read(new File("Resouces/PLANE2.png")));
             plane.setbackground(ImageIO.read(new File("Resouces/Background.png")));
             plane.setsprite(ImageIO.read(new File("Resouces/PLANE1.png")));
+            plane.setDAN(ImageIO.read(new File("Resouces/DAN.png")));
 
 
         }
@@ -66,6 +57,7 @@ public class GameWindow extends Frame implements KeyListener,MouseMotionListener
 
         this.addKeyListener(this); //an phim de cac su kien hoat dong
         this.addMouseMotionListener(this);
+        this.addMouseListener(this);
 
         repaint();//Ve lai
         blankCursor = Toolkit.getDefaultToolkit().createCustomCursor(plane.getPLANE2(), new Point(0, 0), "blank cursor");
@@ -83,6 +75,7 @@ public class GameWindow extends Frame implements KeyListener,MouseMotionListener
         seconds.setColor(getForeground());
         paint(seconds);
         g.drawImage(image,0,0,null);
+
     }
     ///////////////////////////////////////////////////////////////////////////////////////////////
     @Override
@@ -90,6 +83,7 @@ public class GameWindow extends Frame implements KeyListener,MouseMotionListener
     {
 //        g.drawImage(bg,0,0,null);
 //        g.drawImage(PLANE2,positionX1,positionY1,null);
+//        g.drawImage(dan,120,120,null);
         plane.draw(g);
     }
     Cursor blankCursor;
@@ -113,7 +107,8 @@ public class GameWindow extends Frame implements KeyListener,MouseMotionListener
     @Override
     public void keyPressed(KeyEvent e) { //nhan phim
 
-
+        plane.setpositionDanX(plane.getPositionX());
+        plane.setpositionDanY(plane.getPositionY());
         if(e.getKeyChar()=='w')
         {
             plane.setdirection(1);
@@ -132,14 +127,11 @@ public class GameWindow extends Frame implements KeyListener,MouseMotionListener
         }
 
     }
-
     @Override
     public void keyReleased(KeyEvent e)
     {//tha phim ra
         plane.setdirection(0);
     }
-
-
     @Override
     public void run()
     {
@@ -158,4 +150,29 @@ public class GameWindow extends Frame implements KeyListener,MouseMotionListener
     }
 
 
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
 }

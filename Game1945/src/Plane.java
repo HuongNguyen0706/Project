@@ -43,6 +43,22 @@ public class Plane
     {
         this.positionY1 = positionY1;
     }
+
+    private int positionDanX;
+    public int getpositionDanX(){
+        return this.positionDanX;
+    }
+    public void setpositionDanX(int positionDanX){
+        this.positionDanX = positionDanX;
+    }
+    private int positionDanY;
+    public int getpositionDanY(){
+        return positionDanY;
+    }
+
+    public void setpositionDanY(int positionDanY){
+        this.positionDanY = positionDanY;
+    }
     private int speed;
     public int getspeed()
     {
@@ -122,20 +138,28 @@ public class Plane
     {
         this.direction = direction;
     }
+
+    public int speedDan;
     private void move ()
     {
             if (direction == 1)
             {
                 this.PositionY -= this.speed;
+                this.positionDanY -= this.speedDan;
+
+
             } else if (direction == 2)
             {
                 this.PositionY += this.speed;
+                this.positionDanY -= this.speedDan;
             } else if (direction == 3)
             {
                 this.PositionX -= this.speed;
+                this.positionDanY -= this.speedDan;
             } else if (direction == 4)
             {
                 this.PositionX += this.speed;
+                this.positionDanY -= this.speedDan;
 
             }
 
@@ -149,6 +173,7 @@ public class Plane
         g.drawImage(background,0,0,null);
         g.drawImage(PLANE2,positionX1,positionY1,null);
         g.drawImage(sprite,PositionX,PositionY,null);
+        g.drawImage(DAN,this.PositionX,this.PositionY,null);
     }
 
 }
