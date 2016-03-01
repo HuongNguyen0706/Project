@@ -1,0 +1,7 @@
+-2
+    1. Chưa thấy đạn đâu cả.
+    2. 2 cái máy bay là 2 đối tượng của class Plane. chứ không phải tạo 1 cái ảnh của máy bay thứ 2 trong máy bay thứ nhất.
+    Như kiểu chị có 1 bản thiết kế ngôi nhà. Chị xây xong 1 cái rồi, bảo chị xây cái nhà nưuax giống cái này. Thì chị xây thêm
+    cái nữa theo bản thiết kế chứ không phải chị xây cái nàh mờí trong cái nhà cũ.
+     Tức là Plane planeMoveByKey = new Plane();
+            Plane planeMoveByCursor = new Plane();
