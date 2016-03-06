@@ -16,7 +16,7 @@ public abstract class PlaneAbstract extends GameObject{
     protected int planeType;
 
     protected Vector<Bullet> vecBul = new Vector<Bullet>();
-    private PlaneAbstract(){
+    protected PlaneAbstract(){
     }
     public PlaneAbstract(int positionX,int positionY,int speed, int planeType){
         this.positionX = positionX;

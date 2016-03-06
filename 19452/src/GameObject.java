@@ -5,8 +5,8 @@ import java.awt.image.BufferedImage;
  */
 public abstract class GameObject {
     protected int positionX;
-    public int positionY;
-    public BufferedImage sprite;
+    protected int positionY;
+    protected BufferedImage sprite;
 
     public int getPositionX() {
         return positionX;

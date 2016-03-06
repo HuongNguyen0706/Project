@@ -26,11 +26,11 @@ public class GameWindow extends Frame implements Runnable {
         planeMoveByKey = new Plane(200,200,3,4);
         planeMoveByMouse = new Plane(300,300,1,2);
 
-        vectorPlaneEnemy.add(new PlaneEnemy(200, 200,2, 1));
-        vectorPlaneEnemy.add(new PlaneEnemy(100, 100,2, 1));
-        vectorPlaneEnemy.add(new PlaneEnemy(120, 150,2, 1));
-        vectorPlaneEnemy.add(new PlaneEnemy(150, 120,2, 1));
-        vectorPlaneEnemy.add(new PlaneEnemy(300, 90, 2, 1));
+        vectorPlaneEnemy.add(new PlaneEnemy1(200, 200,2, 1));
+        vectorPlaneEnemy.add(new PlaneEnemy1(100, 100,2, 1));
+        vectorPlaneEnemy.add(new PlaneEnemy2(120, 150,2, 1));
+        vectorPlaneEnemy.add(new PlaneEnemy2(150, 120,2, 1));
+//        vectorPlaneEnemy.add(new PlaneEnemy(300, 90, 2, 1));
 //        vectorPlaneEnemy.add(new PlaneEnemy(200, 150, 2, 1));
 //        vectorPlaneEnemy.add(new PlaneEnemy(100,100, 3, 1));
 
@@ -178,6 +178,7 @@ public class GameWindow extends Frame implements Runnable {
         planeMoveByMouse.draw(g);
         for(PlaneEnemy planeEnemy : vectorPlaneEnemy){
             planeEnemy.draw(g);
+
         }
         //g.drawLine(0,0, 100, 100);
     }
